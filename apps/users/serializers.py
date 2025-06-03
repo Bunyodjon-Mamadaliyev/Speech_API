@@ -7,16 +7,9 @@ from .models import User
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [
-            "id",
-            "email",
-            "username",
-            "first_name",
-            "last_name",
-            "is_active",
-            "is_staff",
-            "date_joined",
-        ]
+        fields = ["id", "email", "username", "first_name", "last_name",
+                  "is_active", "is_staff", "date_joined",
+                  ]
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -78,7 +71,6 @@ class LoginSerializer(serializers.Serializer):
 
 class RefreshSerializer(serializers.Serializer):
     refresh = serializers.CharField()
-
     def validate(self, data):
         try:
             refresh = RefreshToken(data["refresh"])
@@ -90,13 +82,6 @@ class RefreshSerializer(serializers.Serializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [
-            "id",
-            "email",
-            "username",
-            "first_name",
-            "last_name",
-            "is_active",
-            "is_staff",
-            "date_joined",
+        fields = ["id", "email", "username", "first_name", "last_name", "is_active",
+            "is_staff", "date_joined",
         ]

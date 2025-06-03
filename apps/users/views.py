@@ -1,12 +1,6 @@
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
-
-from .serializers import (
-    LoginSerializer,
-    RefreshSerializer,
-    RegisterSerializer,
-    UserProfileSerializer,
-)
+from .serializers import LoginSerializer, RefreshSerializer, RegisterSerializer, UserProfileSerializer
 
 
 class RegisterView(generics.CreateAPIView):

@@ -1,31 +1,102 @@
-# DRF Project
+# 🗣️ Speech-to-Text & Text-to-Speech API
 
-This project is built using Django Rest Framework (DRF). Follow the steps below to set up and run the project in a local development environment.
+Bu loyiha DRF (Django Rest Framework), OpenAI Whisper modeli va OpenAI TTS API yordamida yaratilgan STT va TTS funksiyalarini o‘z ichiga oladi. Foydalanuvchilar matnni nutqqa va nutqni matnga aylantirish imkoniyatiga ega.
 
-## Getting Started
+---
+
+## 📄 Swagger va Redoc
+
+- Swagger: [`/swagger/`](http://localhost:8000/swagger/)
+- Redoc: [`/redoc/`](http://localhost:8000/redoc/)
+
+---
+
+## 📦 Texnologiyalar
+
+- Django & Django Rest Framework
+- PostgreSQL
+- Celery & Redis
+- OpenAI Whisper (STT)
+- OpenAI TTS (Text to Speech)
+- drf-yasg (Swagger)
+- Docker (optional)
+
+---
+
+## 🔐 Authentication
+
+| Method | Endpoint                   | Tavsif                    |
+|--------|----------------------------|---------------------------|
+| POST   | `/api/auth/register/`      | 👤 Ro‘yxatdan o‘tish      |
+| POST   | `/api/auth/login/`         | 🔐 Login qilish           |
+| POST   | `/api/auth/token/refresh/` | 🔐 Tokenni refresh qilish |
+---
+## 🗣️ Speech-to-Text (STT)
+
+| Method | Endpoint             | Tavsif                 |
+|--------|----------------------|------------------------|
+| POST   | `/api/stt/convert/`  | 📜 Barcha STT ro‘yxati |
+| GET    | `/api/stt/{id}/`     | 🔍 Bitta STT olish     |
+| GET    | `/api/stt/history/`  | 🔍 STT history olish   |
+---
+## 🔊 Text-to-Speech (TTS)
+
+| Method | Endpoint               | Tavsif                                |
+|--------|------------------------|---------------------------------------|
+| POST   | `/api/tts/convert/`    | 📜 Barcha TTS ro‘yxati                |
+| GET    | `/api/tts/{id}/`       | 🔍 Bitta TTS olish                    |
+| GET    | `/api/tts/{id}/audio/` | 🎙️ Barcha sintezlangan audio fayllari |
+| GET    | `/api/tts/history/`    | 🔍 TTS history olish                  |
+---
+## 👤 User Profil
+
+| Method | Endpoint                  | Tavsif                        |
+|--------|---------------------------|-------------------------------|
+| GET    | `/api/auth/user/profile/` | 🙍 Foydalanuvchi profili      |
+---
+## 📦 OTP & SMS Integratsiya
+
+Loyihada foydalanuvchini ro‘yxatdan o‘tkazishda telefon raqamiga OTP (bir martalik parol) yuboriladi. Bu quyidagi texnologiyalar yordamida amalga oshiriladi:
+
+- 📲 SMS Service API
+- 🧵 Celery (fon ishlar uchun)
+- 📡 Redis (broker sifatida)
+---
+
+## ⚙️ O‘rnatish
 
 ```bash
-# Clone the repository
-git clone <repo-url>
-cd <project-name>/backend
-
-# Create and activate a virtual environment
+# Virtual environment yaratish
 python -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements/development.txt
+# Kutubxonalarni o‘rnatish
+pip install -r requirements/development.txt    
 
-# Set up the environment variables
-cp env-example.txt .env
-# Open the .env file and fill in the required values
+# Migratsiyalar
+python manage.py migrate
 
-# Install and configure pre-commit hooks
-pre-commit install
-pre-commit autoupdate
+# Serverni ishga tushurish
+python manage.py runserver
+```
 
-# Make the start script executable
-chmod +x start.sh
+---
 
-# Run the project
-./start.sh
+## 🧠 Manbalar
+
+- [OpenAI Whisper (STT)](https://github.com/openai/whisper)
+- [OpenAI TTS API](https://platform.openai.com/docs/guides/text-to-speech)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+- [Celery](https://docs.celeryq.dev/en/stable/)
+- [Redis](https://redis.io/)
+- [drf-yasg - Swagger](https://github.com/axnsan12/drf-yasg)
+
+---
+
+## 📎 Loyiha havolasi
+
+📂 `GitHub repo:` [your-repo-link](https://github.com/Bunyodjon-Mamadaliyev/Speech_API.git)
+
+---
+
+🚀 Dastur to‘liq testdan o‘tkazilgan va ishlab chiqarishga tayyor!

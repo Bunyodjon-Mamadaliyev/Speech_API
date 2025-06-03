@@ -6,18 +6,8 @@ class STTSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = STT
-        fields = [
-            "id",
-            "status",
-            "text",
-            "language",
-            "duration",
-            "file_name",
-            "file_size",
-            "created_at",
-            "updated_at",
-            "error",
-            "audio",
+        fields = ["id", "status", "text", "language", "duration", "file_name", "file_size",
+            "created_at", "updated_at", "error", "audio",
         ]
         read_only_fields = [
             "id", "status", "text", "duration", "file_name", "file_size",
