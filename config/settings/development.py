@@ -1,7 +1,9 @@
 from .base import *  # noqa
 
-ALLOWED_HOSTS = ["*"]
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+ALLOWED_HOSTS = ["*", '127.0.0.1', '.vercel.app', 'Bonx.uz']
+# DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = False
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 SWAGGER_SETTINGS = {
